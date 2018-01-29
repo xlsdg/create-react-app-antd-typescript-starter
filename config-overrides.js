@@ -20,13 +20,6 @@ module.exports = function override(config, env) {
     })
   };
 
-  // FIXED Warning: The 'no-use-before-declare' rule requires type infomation.
-  const tsLintLoader = config.module.rules.find(conf => {
-    return conf.loader && conf.loader.includes('tslint-loader');
-  });
-  tsLintLoader.options = tsLintLoader.options || {};
-  tsLintLoader.options.typeCheck = true;
-
   config = rewireLess.withLoaderOptions({
     modifyVars: {
       '@primary-color': '#1DA57A'
